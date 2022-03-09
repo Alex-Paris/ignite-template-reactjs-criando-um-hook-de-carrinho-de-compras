@@ -62,7 +62,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       newProduct.amount += 1;
 
       const updatedCart = [...newCartList, newProduct];
-      
+
+      updatedCart.sort((a, b) => a.id - b.id);
+
       setCart(updatedCart);
 
       localStorage.setItem('@RocketShoes:cart', JSON.stringify(updatedCart));
@@ -113,6 +115,8 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       updatedProduct.amount = amount;
 
       const updatedCart = [...newCartList, updatedProduct];
+
+      updatedCart.sort((a, b) => a.id - b.id);
       
       setCart(updatedCart);
 
